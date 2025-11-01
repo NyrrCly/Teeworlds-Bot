@@ -1,0 +1,20 @@
+{
+  "chat": {
+    "prefix": "!",
+    "owner_name": "Animeuz"
+  },
+  "tee": {
+    "name": "filobot-TTN",
+    "clan": "TTN",
+    "country": 804,
+    "skin": "citrouille",
+    "use_custom_color": 0,
+    "color_body": 1798004,
+    "color_feet": 1869630,
+    "version": 19050
+  },
+  "server": {
+    "address": "localhost:8303",
+    "password": ""
+  }
+}
