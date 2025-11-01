@@ -32,6 +32,9 @@ client.on('message', async (message) => {
                     }
                     clients = await Commands.spamCommand(clients, commandArg);
                     break;
+                case "say":
+                    await Chat.sendMessage(client, commandArg.toString());
+                    break;
                 default:
                     return await Chat.sendMessage(client, `Unknown command`);
             }
