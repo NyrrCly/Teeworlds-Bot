@@ -5,16 +5,16 @@
   },
   "tee": {
     "name": "filobot-TTN",
-    "clan": "TTN",
+    "clan": "!help",
     "country": 804,
-    "skin": "citrouille",
-    "use_custom_color": 0,
+    "skin": "facey_fedorafox",
+    "use_custom_color": 1,
     "color_body": 1798004,
     "color_feet": 1869630,
     "version": 19050
   },
   "server": {
-    "address": "localhost:8303",
+    "address": "185.126.255.140:8303",
     "password": ""
   }
 }
