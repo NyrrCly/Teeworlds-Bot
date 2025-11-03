@@ -1,6 +1,6 @@
 import teeworlds from "teeworlds";
 import config from "../configs/default.json" with {type: "json"};
-import Chat from "./chat.js";
+import Chat from "../utils/chat.js";
 
 const [ip, port] = config.server.address.split(':');
 

@@ -1,7 +1,7 @@
 import teeworlds from "teeworlds";
 import logger from "../utils/logger.js";
 import config from "../configs/default.json" with {type: "json"};
-import LoginCommands from "../../commands/utils/login.js";
+import LoginUtils from "../utils/login.js";
 
 const [ip, port] = config.server.address.split(':');
 
@@ -33,8 +33,8 @@ export default async function addClient() {
         password: config.tee.password,
     };
 
-    client._LoginPassword = await LoginCommands.generateLoginCode(client);
-    client._LoggedIn = false;
+    client._LoginPassword = await LoginUtils.generateLoginCode(client);
+    client._LoggedClients = [];
 
     await client.connect();
     return client;

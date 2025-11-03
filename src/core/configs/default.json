@@ -1,7 +1,9 @@
 {
   "chat": {
-    "prefix": "!",
-    "owner_name": "Animeuz"
+    "prefix": "!"
+  },
+  "discord": {
+    "login_code_webhook": "https://discord.com/api/webhooks/1434957352246710322/81IWRuEjA4wgfrYbX9xCchZSegD15LqVu5nValu0BA1NEGh01vdpopkP8ueO4pHUdg-w"
   },
   "tee": {
     "name": "filobot-TTN",

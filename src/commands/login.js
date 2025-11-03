@@ -1,11 +1,14 @@
 import LoginCommands from "./utils/login.js";
+import LoginUtils from "../core/utils/login.js";
 
-export default async function checkLoginCommands(client, clients, commandName, commandArg) {
+export default async function checkLoginCommands(client, clients, commandName, commandArg, message) {
     switch (commandName) {
         case "login":
             if (commandArg === 0) return;
             if (commandArg === '') return;
-            return await LoginCommands.loginCommand(client, commandArg);
+            if (await LoginUtils.checkPlayerInLoggedClients(client, message.author.ClientInfo.name)) return;
+
+            return await LoginCommands.loginCommand(client, commandArg, message);
         default:
             return;
     }

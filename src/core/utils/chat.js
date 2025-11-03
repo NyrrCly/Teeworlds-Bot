@@ -5,10 +5,6 @@ export default class Chat {
     static async sendMessage(client, message) {
         client.game.Say(message, false);
     }
-    static async checkMessageAuthor(message) {
-        if (message.author?.ClientInfo === undefined) return false;
-        return message.author.ClientInfo.name === config.chat.owner_name ;
-    }
 
     static async checkMessagePrefix(message) {
         if (message.author?.ClientInfo === undefined) return false;
@@ -21,5 +17,17 @@ export default class Chat {
         const arg = rest.join(" ").replace(/^"|"$/g, '');
 
         return [command, arg];
+    }
+
+    static async checkLeaveMessage(message) {
+        if (message.client_id !== -1) return false;
+        const checks = ["left", "-"]
+        for (const check of checks) {
+            if (message.message.includes(check)) return true;
+        }
+    }
+
+    static async checkPlayerNameInLeaveMessage(message, playerName) {
+        return message.message.includes(playerName);
     }
 }
