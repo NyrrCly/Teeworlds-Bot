@@ -3,7 +3,7 @@ import config from "../configs/default.json" with {type: "json"};
 export default class Chat {
 
     static async sendMessage(client, message) {
-        client.game.Say(message, false);
+        return client.game.Say(message, false);
     }
 
     static async checkMessagePrefix(message) {

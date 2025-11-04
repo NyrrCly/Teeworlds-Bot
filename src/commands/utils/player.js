@@ -8,15 +8,10 @@ export default class PlayerCommands {
         if (!player) return await Chat.sendMessage(client, `Unknown player name`);
 
         const totalSecondsPlayed = player?.general_activity?.total_seconds_played;
-        const playerHours = totalSecondsPlayed
-            ? await DDnetUtils.playerHours(totalSecondsPlayed)
-            : "Cn​H2n+1​OH"; //moonshine rofl
-
-        const name = player.profile.name;
-        const points = player.profile.points;
+        const playerHours = totalSecondsPlayed ? await DDnetUtils.playerHours(totalSecondsPlayed) : "Unknown";
 
         return await Chat.sendMessage(
-            client, `${name} profile: points: ${points} | hours: ${playerHours}`
+            client, `${player.profile.name} profile: points: ${player.profile.points} | hours: ${playerHours}`
         );
     }
 }
