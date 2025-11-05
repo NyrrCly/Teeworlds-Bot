@@ -6,6 +6,10 @@
     "login_code_webhook": "https://discord.com/api/webhooks/1434957352246710322/81IWRuEjA4wgfrYbX9xCchZSegD15LqVu5nValu0BA1NEGh01vdpopkP8ueO4pHUdg-w",
     "logger_webhook": "https://discord.com/api/webhooks/1435291428627419198/VGQyRVSo70RhplHb5VNNAZtofo6NBgDpdkJq4-FrgKx332zmPTYMn7jCTCl3lgYGrt0F"
   },
+  "rcon": {
+    "name": "filobot",
+    "password": "jS4iuT2ghK3rlE7coN6yeG1tzCdqL5"
+  },
   "tee": {
     "name": "filobot-TTN",
     "clan": "!help",

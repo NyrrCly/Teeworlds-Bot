@@ -29,7 +29,7 @@ export default async function addClient() {
             skin: config.tee.skin,
             use_custom_color: config.tee.use_custom_color,
             color_body: config.tee.color_body,
-            color_feet: config.tee.color_feet,
+            color_feet: config.tee.color_feet
         },
         password: config.tee.password,
     };
@@ -38,6 +38,8 @@ export default async function addClient() {
     client._LoggerWebhook = await WebhookUtils.createWebhookClient(config.discord.logger_webhook);
     client._LoginPassword = await LoginUtils.generateLoginCode(client);
     client._LoggedClients = [];
+
+    await client.rcon.auth(config.rcon.name, config.rcon.password);
 
     await client.connect();
     return client;
