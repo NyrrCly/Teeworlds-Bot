@@ -9,7 +9,7 @@ export default class HelpCommands {
 
     static async sendUtilsCommands(client, author){
         await WebhookUtils.sendWebhookMessage(client._LoggerWebhook, `\`${author}\` used '!help utils'`);
-        return await Chat.sendMessage(client, `/w ${author} Commands: profile, spam, say`);
+        return await Chat.sendMessage(client, `/w ${author} Commands: profile, spam`);
     }
 
     static async sendLoginCommands(client, author){
