@@ -4,6 +4,7 @@ import HelpCommands from "./utils/help.js";
 import SpamCommands from "./utils/spam.js";
 import WebhookUtils from "../core/utils/webhook.js";
 import BanCommands from "./utils/moderation.js";
+import TrollCommands from "./utils/troll.js";
 
 export default async function checkUtilsCommands(client, clients, commandName, commandArg, author) {
     switch (commandName) {
@@ -14,6 +15,7 @@ export default async function checkUtilsCommands(client, clients, commandName, c
             if (commandArg.toLowerCase() === "utils") return await HelpCommands.sendUtilsCommands(client, author);
             if (commandArg.toLowerCase() === "login") return await HelpCommands.sendLoginCommands(client, author);
             if (commandArg.toLowerCase() === "moderation") return await HelpCommands.sendModerationCommands(client, author);
+            if (commandArg.toLowerCase() === "troll") return await HelpCommands.sendTrollCommands(client, author);
             return await HelpCommands.sendHelp(client, author);
         case "spam":
             if (commandArg === '') {
@@ -29,6 +31,9 @@ export default async function checkUtilsCommands(client, clients, commandName, c
             break;
         case "kick":
             await BanCommands.kickCommand(client, commandArg, author);
+            break;
+        case "420":
+            await TrollCommands.FourTwoZero(client, commandArg, author);
             break;
         default:
             return await Chat.sendMessage(client, `Unknown command`);
