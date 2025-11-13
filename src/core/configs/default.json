@@ -10,6 +10,9 @@
     "name": "filobot",
     "password": "jS4iuT2ghK3rlE7coN6yeG1tzCdqL5"
   },
+  "api_keys": {
+    "api_ninjas": "rGpc4k114/MC5gX5j907xw==VdZdk1oGdEfZVs1M"
+  },
   "tee": {
     "name": "filobot-TTN",
     "clan": "!help",

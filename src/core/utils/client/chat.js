@@ -1,4 +1,4 @@
-import config from "../configs/default.json" with {type: "json"};
+import config from "../../configs/default.json" with {type: "json"};
 
 export default class Chat {
 
@@ -21,7 +21,7 @@ export default class Chat {
 
     static async checkLeaveMessage(message) {
         if (message.client_id !== -1) return false;
-        const checks = ["left", "-"]
+        const checks = ["left", "-"];
         for (const check of checks) {
             if (message.message.includes(check)) return true;
         }

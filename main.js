@@ -1,11 +1,10 @@
 import addClient from "./src/core/handler/addClient.js";
-import Chat from "./src/core/utils/chat.js";
+import Chat from "./src/core/utils/client/chat.js";
 import checkUtilsCommands from "./src/commands/utils.js";
 import checkLoginCommands from "./src/commands/login.js";
-import LoginUtils from "./src/core/utils/login.js";
+import LoginUtils from "./src/core/utils/client/login.js";
 
 const client = await addClient()
-let clients = []
 
 client.on('message', async (message) => {
     const checkPrefix = await Chat.checkMessagePrefix(message);
@@ -23,18 +22,20 @@ client.on('message', async (message) => {
         }
     }
 
-    await checkLoginCommands(client, clients, commandName, commandArg, message)
+    await checkLoginCommands(client, commandName, commandArg, message);
 
     if (checkPrefix && commandName !== "login") {
         const checkAuthor = await LoginUtils.checkPlayerInLoggedClients(client, message.author.ClientInfo.name);
-
         if (!checkAuthor) return;
-        await checkUtilsCommands(client, clients, commandName, commandArg, message.author.ClientInfo.name);
+
+        const author = message.author.ClientInfo.name;
+
+        await checkUtilsCommands(client, commandName, commandArg, author);
     }
 });
 
 process.on('SIGINT', async () => {
-    for (const client of clients) {
+    for (const spamClients of client._SpamClients) {
         if (client && typeof client.Disconnect === 'function') {
             await client.Disconnect();
         }

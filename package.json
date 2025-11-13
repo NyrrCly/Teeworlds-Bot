@@ -1,6 +1,6 @@
 {
-  "name": "twselfbot",
-  "version": "1.0.0",
+  "name": "teeworldbot",
+  "version": "1.4.0",
   "main": "main.js",
   "type": "module",
   "scripts": {
@@ -9,7 +9,7 @@
   "keywords": [],
   "author": "Filoqcus",
   "license": "ISC",
-  "description": "Teeworlds selfbot for game servers",
+  "description": "Teeworlds bot for game servers",
   "dependencies": {
     "pino": "^10.1.0",
     "pino-pretty": "^13.1.2",

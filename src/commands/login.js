@@ -1,7 +1,7 @@
 import LoginCommands from "./utils/login.js";
-import LoginUtils from "../core/utils/login.js";
+import LoginUtils from "../core/utils/client/login.js";
 
-export default async function checkLoginCommands(client, clients, commandName, commandArg, message) {
+export default async function checkLoginCommands(client, commandName, commandArg, message) {
     switch (commandName) {
         case "login":
             if (commandArg === 0) return;

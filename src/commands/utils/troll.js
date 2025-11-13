@@ -1,4 +1,4 @@
-import WebhookUtils from "../../core/utils/webhook.js";
+import WebhookUtils from "../../core/utils/client/webhook.js";
 
 export default class TrollCommands {
     static async FourTwoZero(client, id, author) {

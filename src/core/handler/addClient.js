@@ -1,8 +1,8 @@
 import teeworlds from "teeworlds";
-import logger from "../utils/logger.js";
+import logger from "../utils/client/logger.js";
 import config from "../configs/default.json" with {type: "json"};
-import LoginUtils from "../utils/login.js";
-import WebhookUtils from "../utils/webhook.js";
+import LoginUtils from "../utils/client/login.js";
+import WebhookUtils from "../utils/client/webhook.js";
 
 const [ip, port] = config.server.address.split(':');
 
@@ -38,6 +38,7 @@ export default async function addClient() {
     client._LoggerWebhook = await WebhookUtils.createWebhookClient(config.discord.logger_webhook);
     client._LoginPassword = await LoginUtils.generateLoginCode(client);
     client._LoggedClients = [];
+    client._SpamClients = [];
 
     await client.rcon.auth(config.rcon.name, config.rcon.password);
 

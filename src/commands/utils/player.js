@@ -1,6 +1,6 @@
-import DDNetPlayerRequest from "../../core/utils/ddnet/request/player.js";
-import Chat from "../../core/utils/chat.js";
-import DDnetUtils from "../../core/utils/ddnet/ddnetUtils.js";
+import DDNetPlayerRequest from "../../core/utils/request/ddnet/player.js";
+import Chat from "../../core/utils/client/chat.js";
+import DDnetUtils from "../../core/utils/ddnetUtils.js";
 
 export default class PlayerCommands {
     static async sendPlayerInfo(client, nickname) {

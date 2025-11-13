@@ -1,6 +1,6 @@
 import teeworlds from "teeworlds";
 import config from "../configs/default.json" with {type: "json"};
-import Chat from "../utils/chat.js";
+import Chat from "../utils/client/chat.js";
 
 const [ip, port] = config.server.address.split(':');
 
@@ -24,7 +24,7 @@ export default async function addSpamClients(clients, message) {
                     color_feet: client.options.identity.color_feet
                 })
             }, 20000)
-            ]
+        ];
 
         client.options = {
             ddnet_version: {
@@ -45,9 +45,6 @@ export default async function addSpamClients(clients, message) {
 
         await client.connect();
         clients.push(client);
-        // if (i % 4 === 0) {
-        //     await new Promise(res => setTimeout(res, 10000));
-        // }
     }
     return clients;
 }
