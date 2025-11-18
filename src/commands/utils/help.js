@@ -6,7 +6,7 @@ export default class HelpCommands {
     }
 
     static async sendUtilsCommands(client, author) {
-        return await Chat.sendMessage(client, `/w ${author} Commands: profile: "profile Aoe", spam: "spam 'Spam'"`);
+        return await Chat.sendMessage(client, `/w ${author} Commands: profile: "profile Aoe", spam: "spam 'SW1PTYK sigma boy'"`);
     }
 
     static async sendModerationCommands(client, author) {

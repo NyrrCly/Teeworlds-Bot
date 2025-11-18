@@ -28,6 +28,7 @@ export default class Chat {
     }
 
     static async checkPlayerNameInLeaveMessage(message, playerName) {
+        if (message.message.includes("[D]")) return false;
         return message.message.includes(playerName);
     }
 }
