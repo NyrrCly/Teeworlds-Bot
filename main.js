@@ -1,7 +1,7 @@
 import addClient from "./src/core/handler/addClient.js";
 import Chat from "./src/core/utils/client/chat.js";
-import checkUtilsCommands from "./src/commands/utils.js";
-import checkLoginCommands from "./src/commands/login.js";
+import checkUtilsCommands from "./src/client/utils.js";
+import checkLoginCommands from "./src/client/login.js";
 import LoginUtils from "./src/core/utils/client/login.js";
 
 const client = await addClient()
@@ -14,10 +14,10 @@ client.on('message', async (message) => {
     const commandArg = command[1];
 
     if (await Chat.checkLeaveMessage(message)) {
-        for (const playerName of client._LoggedClients) {
+        for (const playerName of client.Clients.logged) {
             if (await Chat.checkPlayerNameInLeaveMessage(message, playerName)) {
-                const getPlayerIndex = client._LoggedClients.findIndex(name => name === playerName);
-                client._LoggedClients.splice(getPlayerIndex, 1);
+                const getPlayerIndex = client.Clients.logged.findIndex(name => name === playerName);
+                client.Clients.logged.splice(getPlayerIndex, 1);
             }
         }
     }
@@ -35,9 +35,9 @@ client.on('message', async (message) => {
 });
 
 process.on('SIGINT', async () => {
-    for (const spamClients of client._SpamClients) {
-        if (client && typeof client.Disconnect === 'function') {
-            await client.Disconnect();
+    for (const spamClient of client.Clients.spam) {
+        if (spamClient && typeof spamClient.Disconnect === 'function') {
+            await spamClient.Disconnect();
         }
     }
     await client.Disconnect();

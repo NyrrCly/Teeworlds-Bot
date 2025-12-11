@@ -7,24 +7,21 @@
     "logger_webhook": "https://discord.com/api/webhooks/1435291428627419198/VGQyRVSo70RhplHb5VNNAZtofo6NBgDpdkJq4-FrgKx332zmPTYMn7jCTCl3lgYGrt0F"
   },
   "rcon": {
-    "name": "filobot",
-    "password": "jS4iuT2ghK3rlE7coN6yeG1tzCdqL5"
-  },
-  "api_keys": {
-    "api_ninjas": "rGpc4k114/MC5gX5j907xw==VdZdk1oGdEfZVs1M"
+    "name": "",
+    "password": ""
   },
   "tee": {
-    "name": "filobot-TTN",
+    "name": "[BOT] NyrrCly",
     "clan": "!help",
     "country": 804,
-    "skin": "facey_fedorafox",
+    "skin": "icey-twinbop",
     "use_custom_color": 1,
     "color_body": 1798004,
     "color_feet": 1869630,
     "version": 19050
   },
   "server": {
-    "address": "185.126.255.140:8303",
+    "address": "localhost:8303",
     "password": ""
   }
 }

@@ -1,10 +1,9 @@
 import Chat from "../core/utils/client/chat.js";
-import PlayerCommands from "./utils/player.js";
-import HelpCommands from "./utils/help.js";
-import SpamCommands from "./utils/spam.js";
+import PlayerCommands from "./commands/player.js";
+import HelpCommands from "./commands/help.js";
+import SpamCommands from "./commands/spam.js";
 import WebhookUtils from "../core/utils/client/webhook.js";
-import ModerationCommands from "./utils/moderation.js";
-import TrollCommands from "./utils/troll.js";
+import ModerationCommands from "./commands/moderation.js";
 import Utils from "../core/utils/client/utils.js";
 
 export default async function checkUtilsCommands(client, commandName, commandArg, author) {
@@ -12,19 +11,19 @@ export default async function checkUtilsCommands(client, commandName, commandArg
         //Utils Commands
 
         case "profile":
-            await WebhookUtils.sendWebhookMessage(client._LoggerWebhook, `\`${author}\` used '!profile ${commandArg}'`)
+            await WebhookUtils.sendWebhookMessage(client.Webhooks.logger, `\`${author}\` used '!profile ${commandArg}'`)
             return await PlayerCommands.sendPlayerInfo(client, commandArg);
         case "help":
             if (commandArg.toLowerCase() !== '') return await Utils.helpCommandHandler(client, commandArg, author);
             return await HelpCommands.sendHelp(client, author);
         case "spam":
             if (commandArg === '') {
-                await SpamCommands.stopSpamCommand(client._SpamClients);
-                await WebhookUtils.sendWebhookMessage(client._LoggerWebhook, `\`${author}\` used '!spam' (stop spam)`);
+                await SpamCommands.stopSpamCommand(client.Clients.spam);
+                await WebhookUtils.sendWebhookMessage(client.Webhooks.logger, `\`${author}\` used '!spam' (stop spam)`);
                 return await Chat.sendMessage(client, `/w ${author} Spam stopped`);
             }
-            client._SpamClients = await SpamCommands.spamCommand(client._SpamClients, commandArg);
-            await WebhookUtils.sendWebhookMessage(client._LoggerWebhook, `\`${author}\` used '!spam ${commandArg}'`);
+            client.Clients.spam = await SpamCommands.spamCommand(client.Clients.spam, commandArg);
+            await WebhookUtils.sendWebhookMessage(client.Webhooks.logger, `\`${author}\` used '!spam ${commandArg}'`);
             break;
 
         //Moderation Commands
@@ -40,10 +39,6 @@ export default async function checkUtilsCommands(client, commandName, commandArg
             break;
 
         //Troll Commands
-
-        case "420":
-            await TrollCommands.FourTwoZero(client, commandArg, author);
-            break;
         case "coinflip":
             await Chat.sendMessage(client, `${author}: ${await Utils.coinFlip()}`);
             break;

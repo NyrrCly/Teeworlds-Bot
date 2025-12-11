@@ -1,4 +1,4 @@
-import HelpCommands from "../../../commands/utils/help.js";
+import HelpCommands from "../../../client/commands/help.js";
 
 export default class Utils {
     static async helpCommandHandler(client, commandArg, author) {

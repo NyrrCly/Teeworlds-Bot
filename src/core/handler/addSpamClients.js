@@ -1,12 +1,27 @@
 import teeworlds from "teeworlds";
-import config from "../configs/default.json" with {type: "json"};
+import config from "../../configs/default.json" with {type: "json"};
 import Chat from "../utils/client/chat.js";
 
 const [ip, port] = config.server.address.split(':');
 
 export default async function addSpamClients(clients, message) {
     for (let i = 0; i < 4; i++) {
-        const client = new teeworlds.Client(ip, Number(port), 'SPAMBOTS');
+        const client = new teeworlds.Client(ip, Number(port), 'SPAMBOTS', {
+            ddnet_version: {
+                version: config.tee.version,
+                release_version: '(spambotbynyrrcly)'
+            },
+            identity: {
+                name: "SPAMBOTS",
+                clan: "SPAMBOTS",
+                country: config.tee.country,
+                skin: config.tee.skin,
+                use_custom_color: config.tee.use_custom_color,
+                color_body: config.tee.color_body,
+                color_feet: config.tee.color_feet,
+            },
+            password: config.tee.password,
+        });
 
         client._intervals = [
             setInterval(() => {
@@ -25,23 +40,6 @@ export default async function addSpamClients(clients, message) {
                 })
             }, 20000)
         ];
-
-        client.options = {
-            ddnet_version: {
-                version: config.tee.version,
-                release_version: '(spambotscreatedbyfiloqcus)'
-            },
-            identity: {
-                name: "SPAMBOTS",
-                clan: "SPAMBOTS",
-                country: config.tee.country,
-                skin: config.tee.skin,
-                use_custom_color: config.tee.use_custom_color,
-                color_body: config.tee.color_body,
-                color_feet: config.tee.color_feet,
-            },
-            password: config.tee.password,
-        };
 
         await client.connect();
         clients.push(client);

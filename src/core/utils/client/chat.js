@@ -1,4 +1,4 @@
-import config from "../../configs/default.json" with {type: "json"};
+import config from "../../../configs/default.json" with {type: "json"};
 
 export default class Chat {
 

@@ -1,4 +1,4 @@
-import LoginCommands from "./utils/login.js";
+import LoginCommands from "./commands/login.js";
 import LoginUtils from "../core/utils/client/login.js";
 
 export default async function checkLoginCommands(client, commandName, commandArg, message) {
