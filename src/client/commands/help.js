@@ -12,8 +12,4 @@ export default class HelpCommands {
     static async sendModerationCommands(client, author) {
         return await Chat.sendMessage(client, `/w ${author} Commands: ban: "ban 'id time(minutes) reason'", kick: "kick 'id reason'", mute: "mute id time(seconds) reason'"`);
     }
-
-    static async sendTrollCommands(client, author) {
-        return await Chat.sendMessage(client, `/w ${author} Commands: 420: "420 id"`);
-    }
 }

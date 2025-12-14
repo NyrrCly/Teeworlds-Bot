@@ -18,10 +18,11 @@ export default async function checkUtilsCommands(client, commandName, commandArg
             return await HelpCommands.sendHelp(client, author);
         case "spam":
             if (commandArg === '') {
-                await SpamCommands.stopSpamCommand(client.Clients.spam);
                 await WebhookUtils.sendWebhookMessage(client.Webhooks.logger, `\`${author}\` used '!spam' (stop spam)`);
+                await SpamCommands.stopSpamCommand(client.Clients.spam);
                 return await Chat.sendMessage(client, `/w ${author} Spam stopped`);
             }
+
             client.Clients.spam = await SpamCommands.spamCommand(client.Clients.spam, commandArg);
             await WebhookUtils.sendWebhookMessage(client.Webhooks.logger, `\`${author}\` used '!spam ${commandArg}'`);
             break;

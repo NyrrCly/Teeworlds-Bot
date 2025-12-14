@@ -23,7 +23,7 @@ export default async function addSpamClients(clients, message) {
             password: config.tee.password,
         });
 
-        client._intervals = [
+        client.Intervals = [
             setInterval(() => {
                 Chat.sendMessage(client, `${message}`);
             }, 6000),

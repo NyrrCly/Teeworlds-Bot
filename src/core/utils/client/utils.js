@@ -4,7 +4,6 @@ export default class Utils {
     static async helpCommandHandler(client, commandArg, author) {
         if (commandArg.toLowerCase() === "utils") return await HelpCommands.sendUtilsCommands(client, author);
         if (commandArg.toLowerCase() === "moderation") return await HelpCommands.sendModerationCommands(client, author);
-        if (commandArg.toLowerCase() === "troll") return await HelpCommands.sendTrollCommands(client, author);
     }
 
     static async coinFlip(){

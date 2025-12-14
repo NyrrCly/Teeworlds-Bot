@@ -9,9 +9,9 @@ export default class SpamCommands {
         for (const client of clients) {
             if (!client) continue;
 
-            if (client._intervals) {
-                client._intervals.forEach(clearInterval);
-                client._intervals = [];
+            if (client.Intervals) {
+                client.Intervals.forEach(clearInterval);
+                client.Intervals = [];
             }
 
             if (client && typeof await client.Disconnect === 'function') {
