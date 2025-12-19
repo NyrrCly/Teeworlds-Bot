@@ -2,7 +2,7 @@ import Chat from "../../core/utils/client/chat.js";
 
 export default class HelpCommands {
     static async sendHelp(client, author) {
-        return await Chat.sendMessage(client, `/w ${author} Prefix: ! | Commands: Utils, Moderation, Troll`);
+        return await Chat.sendMessage(client, `/w ${author} Prefix: ! | Commands: Utils, Moderation`);
     }
 
     static async sendUtilsCommands(client, author) {

@@ -5,8 +5,7 @@ export default async function checkLoginCommands(client, commandName, commandArg
     switch (commandName) {
         case "login":
             if (commandArg === 0 || commandArg === '') return;
-            if (await LoginUtils.checkPlayerInLoggedClients(client, message.author.ClientInfo.name)) return;
-
+            if (LoginUtils.checkPlayerInLoggedClients(client, message.author.ClientInfo.name)) return;
             return await LoginCommands.loginCommand(client, commandArg, message);
         default:
             return;

@@ -18,6 +18,6 @@ export default class SpamCommands {
                 await client.Disconnect();
             }
         }
-        clients.length = 0;
+        clients.lengh = 0;
     }
 }

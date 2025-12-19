@@ -1,10 +1,11 @@
 import addClient from "./src/core/handler/addClient.js";
 import Chat from "./src/core/utils/client/chat.js";
-import checkUtilsCommands from "./src/client/utils.js";
-import checkLoginCommands from "./src/client/login.js";
+import checkCommands from "./src/client/checkCommands.js";
+import checkLoginCommands from "./src/client/checkLogin.js";
 import LoginUtils from "./src/core/utils/client/login.js";
+import Utils from "./src/core/utils/client/utils.js";
 
-const client = await addClient()
+const client = await addClient();
 
 client.on('message', async (message) => {
     const checkPrefix = await Chat.checkMessagePrefix(message);
@@ -30,7 +31,8 @@ client.on('message', async (message) => {
 
         const author = message.author.ClientInfo.name;
 
-        await checkUtilsCommands(client, commandName, commandArg, author);
+        await Utils.interactionLogger(client, commandName, commandArg, author);
+        await checkCommands(client, commandName, commandArg, author);
     }
 });
 
