@@ -16,7 +16,7 @@ export default async function checkCommands(client, commandName, commandArg, aut
             if (commandArg === '') return await SpamCommands.stopSpamCommand(client.Clients.spam);
             return client.Clients.spam = await SpamCommands.spamCommand(client.Clients.spam, commandArg);
         case "coinflip":
-            return await Chat.sendMessage(client, `${author}: ${await Utils.coinFlip()}`);
+            return Chat.sendMessage(client, `${author}: ${await Utils.coinFlip()}`);
 
         case "ban":
             return await ModerationCommands.banCommand(client, commandArg, author);
@@ -25,6 +25,6 @@ export default async function checkCommands(client, commandName, commandArg, aut
         case "mute":
             return await ModerationCommands.muteCommand(client, commandArg, author);
         default:
-            return await Chat.sendMessage(client, `Unknown command`);
+            return Chat.sendMessage(client, `Unknown command`);
     }
 }

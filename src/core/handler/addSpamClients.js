@@ -30,7 +30,7 @@ export default async function addSpamClients(clients, message) {
 
             setInterval(() => {
                 client.game.ChangePlayerInfo({
-                    name: (Math.floor(Math.random() * 100000000000000)).toString(),
+                    name: (Math.floor(Math.random() * 10000000000)).toString(),
                     clan: client.options.identity.clan,
                     country: client.options.identity.country,
                     skin: client.options.identity.skin,

@@ -6,7 +6,7 @@ export default class LoginCommands {
         const author = message.author.ClientInfo.name;
         if (client.LoginPassword === parseInt(password)) {
             await LoginUtils.generateLoginCode(client);
-            await Chat.sendMessage(client, `/w ${author} You are logged in ♥`);
+            Chat.sendMessage(client, `/w ${author} You are logged in ♥`);
             client.Clients.logged.push(author);
         }
     }

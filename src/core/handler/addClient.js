@@ -42,7 +42,7 @@ export default async function addClient() {
     }
     client.LoginPassword = await LoginUtils.generateLoginCode(client);
 
-    await client.rcon.auth(config.rcon.name, config.rcon.password);
+    client.rcon.auth(config.rcon.name, config.rcon.password);
 
     await client.connect();
     return client;
