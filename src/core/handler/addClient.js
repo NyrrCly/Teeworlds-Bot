@@ -1,8 +1,9 @@
+import {OpenRouter} from "@openrouter/sdk";
 import teeworlds from "teeworlds";
 import logger from "../utils/client/logger.js";
-import config from "../../configs/default.json" with {type: "json"};
 import LoginUtils from "../utils/client/login.js";
 import WebhookUtils from "../utils/client/webhook.js";
+import config from "../../configs/default.json" with {type: "json"};
 
 const [ip, port] = config.server.address.split(':');
 
@@ -41,6 +42,9 @@ export default async function addClient() {
         spam: []
     }
     client.LoginPassword = await LoginUtils.generateLoginCode(client);
+    client.OpenRouter = new OpenRouter({
+        apiKey: config.api.open_router
+    });
 
     client.rcon.auth(config.rcon.name, config.rcon.password);
 

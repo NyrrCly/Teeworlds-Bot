@@ -3,6 +3,7 @@ import PlayerCommands from "./commands/player.js";
 import HelpCommands from "./commands/help.js";
 import SpamCommands from "./commands/spam.js";
 import ModerationCommands from "./commands/moderation.js";
+import OpenAICommands from "./commands/openAI.js";
 import Utils from "../core/utils/client/utils.js";
 
 export default async function checkCommands(client, commandName, commandArg, author) {
@@ -17,6 +18,8 @@ export default async function checkCommands(client, commandName, commandArg, aut
             return client.Clients.spam = await SpamCommands.spamCommand(client.Clients.spam, commandArg);
         case "coinflip":
             return Chat.sendMessage(client, `${author}: ${await Utils.coinFlip()}`);
+        case "openai":
+            return await OpenAICommands.getInfo(client, commandArg, author);
 
         case "ban":
             return await ModerationCommands.banCommand(client, commandArg, author);

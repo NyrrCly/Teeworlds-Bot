@@ -10,6 +10,9 @@
     "name": "",
     "password": ""
   },
+  "api": {
+    "open_router": "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"
+  },
   "tee": {
     "name": "[BOT] NyrrCly",
     "clan": "!help",
