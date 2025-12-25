@@ -20,7 +20,7 @@ export default async function addSpamClients(clients, message) {
                 color_body: config.tee.color_body,
                 color_feet: config.tee.color_feet,
             },
-            password: config.tee.password,
+            password: config.server.password,
         });
 
         client.Intervals = [

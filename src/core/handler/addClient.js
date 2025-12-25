@@ -22,7 +22,7 @@ export default async function addClient() {
             color_body: config.tee.color_body,
             color_feet: config.tee.color_feet
         },
-        password: config.tee.password,
+        password: config.server.password,
     });
 
     client.on('connected', () => {
