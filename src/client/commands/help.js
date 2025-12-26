@@ -6,10 +6,10 @@ export default class HelpCommands {
     }
 
     static async sendUtilsCommands(client, author) {
-        return Chat.sendMessage(client, `/w ${author} Commands: profile - Example: profile Aoe | spam - Example: "spam 'SW1PTYK sigma boy'"`);
+        return Chat.sendMessage(client, `/w ${author} Commands: profile - Example: !profile Aoe | spam - Example: !spam 'SW1PTYK sigma boy' | coinflip | openai - Example: !openai Hello!`);
     }
 
     static async sendModerationCommands(client, author) {
-        return Chat.sendMessage(client, `/w ${author} Commands: ban - Example: "ban 'id time(minutes) reason'" | kick - Example: "kick 'id reason'" | mute - Example: "mute id time(seconds) reason'"`);
+        return Chat.sendMessage(client, `/w ${author} Commands: ban - Example: !ban 'id time(minutes) reason' | kick - Example: !kick 'id reason' | mute - Example: !mute id time(seconds) reason'`);
     }
 }
