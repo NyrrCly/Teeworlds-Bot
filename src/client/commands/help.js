@@ -6,7 +6,7 @@ export default class HelpCommands {
     }
 
     static async sendUtilsCommands(client, author) {
-        return Chat.sendMessage(client, `/w ${author} Commands: profile - Example: !profile Aoe | spam - Example: !spam 'SW1PTYK sigma boy' | coinflip | openai - Example: !openai Hello!`);
+        return Chat.sendMessage(client, `/w ${author} Commands: profile - Example: !profile Aoe | spam - Example: !spam 'SW1PTYK sigma boy' | coinflip | openai - Example: !openai Hello! | 8ball`);
     }
 
     static async sendModerationCommands(client, author) {

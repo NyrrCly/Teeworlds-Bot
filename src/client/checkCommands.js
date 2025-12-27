@@ -18,6 +18,8 @@ export default async function checkCommands(client, commandName, commandArg, aut
             return client.Clients.spam = await SpamCommands.spamCommand(client.Clients.spam, commandArg);
         case "coinflip":
             return Chat.sendMessage(client, `${author}: ${await Utils.coinFlip()}`);
+        case "8ball":
+            return Chat.sendMessage(client, `${author}: ${await Utils.eightBall()}`);
         case "openai":
             return await OpenAICommands.getInfo(client, commandArg, author);
 

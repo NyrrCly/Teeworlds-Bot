@@ -13,6 +13,11 @@ export default class Utils {
         return words[Math.floor(Math.random() * words.length)];
     }
 
+     static async eightBall() {
+        const words = ["Yes", "No", "Probably yes", "Probably no", "Maybe", "Not quite"]
+        return words[Math.floor(Math.random() * words.length)];
+    }
+
     static async interactionLogger(client, commandName, commandArg, author) {
         return await WebhookUtils.sendWebhookComponents(client.Webhooks.logger, WebhookMessages.commandUsed(commandName, commandArg, author));
     }
