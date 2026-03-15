@@ -1,21 +1,35 @@
+import config from "../../configs/default.json" with {type: "json"};
+
 export default class OpenAIUtils {
     static async sendMessageToApi(client, message) {
         try {
+            client.history.push({
+                role: "user",
+                content: message
+            })
+
             const completion = await client.OpenRouter.chat.send({
-                model: 'tngtech/deepseek-r1t2-chimera:free',
+                model: config.openAi.model,
                 messages: [
                     {
                         role: 'system',
-                        content: 'You are a helpful assistant. Keep your answers brief (max. 220 characters).'
+                        content: config.openAi.prompt
                     },
                     {
                         role: 'user',
-                        content: `Reply to "${message}" in the user's language, maximum 220 characters, all in one line`
-                    }
+                        content: message
+                    },
+                    ...client.history
                 ],
                 stream: false,
             });
-            return completion.choices[0].message.content;
+
+            const reply = completion.choices[0].message.content;
+
+            client.history.push({
+                role: "assistant",
+                content: reply
+            });
         } catch(error) {
             return "OpenAI error, possibly a request limit";
         }

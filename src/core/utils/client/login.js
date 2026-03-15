@@ -1,5 +1,6 @@
 import WebhookUtils from "./webhook.js";
 import WebhookMessages from "../../elements/webhookMessages.js";
+import config from "../../../configs/default.json" with {type: "json"};
 
 export default class LoginUtils {
     static async generateLoginCode(client) {
@@ -9,6 +10,9 @@ export default class LoginUtils {
     }
 
     static checkPlayerInLoggedClients(client, playerName) {
+        if(!config.bot.check_login_on_localhost) {
+            if (config.server.address.includes("localhost")) return true;
+        }
         return client.Clients.logged.includes(playerName);
     }
 }

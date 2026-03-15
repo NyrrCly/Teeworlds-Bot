@@ -43,7 +43,8 @@ export default async function addClient() {
     }
     client.LoginPassword = await LoginUtils.generateLoginCode(client);
     client.OpenRouter = new OpenRouter({
-        apiKey: config.api.open_router
+        aiHistory: [],
+        apiKey: config.openAi.api_key
     });
 
     client.rcon.auth(config.rcon.name, config.rcon.password);
