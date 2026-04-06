@@ -42,10 +42,12 @@ export default async function addClient() {
         spam: []
     }
     client.LoginPassword = await LoginUtils.generateLoginCode(client);
-    client.OpenRouter = new OpenRouter({
+    client.AiApi = {
+        openRouter: new OpenRouter({
+            apiKey: config.openAi.api_key
+        }),
         aiHistory: [],
-        apiKey: config.openAi.api_key
-    });
+    }
 
     client.rcon.auth(config.rcon.name, config.rcon.password);
 

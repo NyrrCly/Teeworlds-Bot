@@ -1,37 +1,43 @@
 import config from "../../configs/default.json" with {type: "json"};
+import logger from "./client/logger.js";
 
 export default class OpenAIUtils {
     static async sendMessageToApi(client, message) {
         try {
-            client.history.push({
-                role: "user",
-                content: message
-            })
-
-            const completion = await client.OpenRouter.chat.send({
-                model: config.openAi.model,
-                messages: [
-                    {
-                        role: 'system',
-                        content: config.openAi.prompt
-                    },
-                    {
-                        role: 'user',
-                        content: message
-                    },
-                    ...client.history
-                ],
-                stream: false,
+            const completion = await client.AiApi.openRouter.chat.send({
+                chatGenerationParams: {
+                    model: config.openAi.model,
+                    messages: [
+                        {
+                            role: 'system',
+                            content: config.openAi.prompt
+                        },
+                        {
+                            role: 'user',
+                            content: message
+                        },
+                        ...client.AiApi.aiHistory
+                    ],
+                },
+                stream: false
             });
 
             const reply = completion.choices[0].message.content;
 
-            client.history.push({
+            client.AiApi.aiHistory.push({
+                role: "user",
+                content: message
+            });
+
+            client.AiApi.aiHistory.push({
                 role: "assistant",
                 content: reply
             });
-        } catch(error) {
+
+            return reply;
+        } catch (error) {
+            logger.error(error);
             return "OpenAI error, possibly a request limit";
         }
-    }   
+    }
 }
