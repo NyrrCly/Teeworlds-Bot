@@ -5,7 +5,7 @@ export default class OpenAIUtils {
     static async sendMessageToApi(client, message) {
         try {
             const completion = await client.AiApi.openRouter.chat.send({
-                chatGenerationParams: {
+                chatRequest: {
                     model: config.openAi.model,
                     messages: [
                         {
