@@ -15,26 +15,13 @@ export default class OpenAIUtils {
                         {
                             role: 'user',
                             content: message
-                        },
-                        ...client.AiApi.aiHistory
+                        }
                     ],
                 },
                 stream: false
             });
 
-            const reply = completion.choices[0].message.content;
-
-            client.AiApi.aiHistory.push({
-                role: "user",
-                content: message
-            });
-
-            client.AiApi.aiHistory.push({
-                role: "assistant",
-                content: reply
-            });
-
-            return reply;
+            return completion.choices[0].message.content;
         } catch (error) {
             logger.error(error);
             return "OpenAI error, possibly a request limit";
