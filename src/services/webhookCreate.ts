@@ -1,4 +1,4 @@
-import { WebhookClient, MessageFlags, BaseMessageOptions } from "discord.js";
+import { WebhookClient, MessageFlags } from "discord.js";
 import ComponentsBuilder from "../shared/builders/ComponentsBuilder.js";
 
 export function createWebhookClient(url: string) {

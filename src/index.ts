@@ -4,7 +4,6 @@ import {
   checkLeaveMessage,
   checkMessageCommand,
   checkMessagePrefix,
-  checkPlayerNameInLeaveMessage,
 } from "./shared/utils/checkMessage.js";
 import {
   checkLoggedPlayers,

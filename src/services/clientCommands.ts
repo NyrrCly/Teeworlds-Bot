@@ -3,7 +3,6 @@ import { generateCode } from "../shared/utils/generateCode.js";
 import config from "../configs/config.json" with { type: "json" };
 import { TWClient } from "./clientCreate.js";
 import { getPlayerData } from "./api/ddstats.js";
-import { PlayerData } from "../types/types.js";
 import { playerHours } from "../shared/utils/ddnetUtils.js";
 
 export async function login(
