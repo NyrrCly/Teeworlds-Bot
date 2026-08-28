@@ -1,13 +1,13 @@
-import { WebhookClient } from "discord.js"
+import { WebhookClient } from "discord.js";
 
 declare module "teeworlds" {
   interface Client {
     webhooks: {
-        login: WebhookClient
-        logger: WebhookClient
+      login: WebhookClient;
+      logger: WebhookClient;
     };
     clients: {
-        logged: string[]
+      logged: string[];
     };
     loginPassword: number;
   }

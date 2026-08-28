@@ -6,8 +6,8 @@
     "check_login_on_localhost": false
   },
   "discord": {
-    "login_code_webhook": "https://discord.com/api/webhooks/1434957352246710322/81IWRuEjA4wgfrYbX9xCchZSegD15LqVu5nValu0BA1NEGh01vdpopkP8ueO4pHUdg-w",
-    "logger_webhook": "https://discord.com/api/webhooks/1542633418465091594/IF2jajriqIAlDW_pBdiX0Oyml77Mm2DkUEJCUY5yAtGa5dAhuXDuhHUwOh_w1ebDa51C"
+    "login_code_webhook": "",
+    "logger_webhook": ""
   },
   "rcon": {
     "name": "",

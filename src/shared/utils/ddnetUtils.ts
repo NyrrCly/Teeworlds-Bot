@@ -1,3 +1,3 @@
 export function playerHours(seconds: number) {
-    return Math.floor((seconds / 60) / 60);
+  return Math.floor(seconds / 60 / 60);
 }
