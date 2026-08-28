@@ -4,14 +4,6 @@ This bot is based on the [teeworlds library](https://github.com/swarfeya/teeworl
 
 ### Functionality
 
-1. [Json Config](src/configs/default.json)
+1. [Json Config](src/configs/config.json)
 2. Login System by nicknames
-
-### Commands
-
-1. [help](src/client/commands/help.js)
-2. [login](src/client/commands/login.js)
-3. [moderation](src/client/commands/moderation.js) - kick | ban | mute
-4. [openAI](src/client/commands/openAI.js) - chat bot
-5. [player](src/client/commands/player.js) - profile
-6. [spam](src/client/commands/spam.js) - spam bots (Only for test D:)
+3. Some interesting commands :D
