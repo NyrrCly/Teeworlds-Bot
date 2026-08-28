@@ -4,6 +4,12 @@ This bot is based on the [teeworlds library](https://github.com/swarfeya/teeworl
 
 ### Functionality
 
-1. [Json Config](src/configs/config.json)
+1. [Config](src/configs/config.json)
 2. Login System by nicknames
 3. Some interesting commands :D
+
+### How to start
+1. You need to download [nodejs](https://nodejs.org/en/download)
+2. Run: `npm install`
+3. Change [configs](src/configs/config.json), add webhook links
+4. After this run: `npm run start`
